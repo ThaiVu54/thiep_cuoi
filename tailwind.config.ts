@@ -15,8 +15,9 @@ const config: Config = {
         soft: "#fff7fb",
       },
       fontFamily: {
-        sans: ["Be Vietnam Pro", "system-ui", "sans-serif"],
-        serif: ["Playfair Display", "Georgia", "serif"],
+        // Font nạp bằng next/font, fallback là font hệ thống có hỗ trợ tiếng Việt
+        sans: ["var(--font-sans)", "Segoe UI", "system-ui", "sans-serif"],
+        serif: ["var(--font-serif)", "Times New Roman", "serif"],
       },
       keyframes: {
         float: {

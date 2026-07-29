@@ -2,14 +2,14 @@ import type { SiteConfig } from "@/types";
 
 export const siteConfig: SiteConfig = {
   groom: {
-    name: "Thái Vũ",
-    father: "Ông Nguyễn Văn A",
-    mother: "Bà Trần Thị B",
+    name: "Vũ Văn Thái",
+    father: "Ông Vũ Văn Thơi",
+    mother: "Bà Vũ Thị Hòa",
   },
   bride: {
-    name: "Ngọc Anh",
-    father: "Ông Lê Văn C",
-    mother: "Bà Phạm Thị D",
+    name: "Ngô Thị Méng",
+    father: "Ông Ngô Văn Dương",
+    mother: "Bà Ngô Thị Hải",
   },
   weddingDate: "2026-11-20T11:00:00+07:00",
   venueName: "Trung Tâm Hội Nghị Hạnh Phúc",
