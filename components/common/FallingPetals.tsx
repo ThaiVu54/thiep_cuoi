@@ -1,29 +1,33 @@
 "use client";
 
+import Image from "next/image";
+
 export function FallingPetals() {
   return (
     <div aria-hidden className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-      {Array.from({ length: 14 }).map((_, idx) => (
-        <span
+      {Array.from({ length: 12 }).map((_, idx) => (
+        <div
           key={idx}
-          className="absolute h-2.5 w-2.5 animate-[petal_12s_linear_infinite] rounded-full bg-pink-200/60"
+          className="absolute falling-leaf"
           style={{
-            left: `${(idx + 1) * 7}%`,
-            top: `-${idx * 20}px`,
-            animationDelay: `${idx * 0.9}s`,
+            left: `${(idx + 1) * 8}%`,
+            top: `-30px`,
+            animationDuration: `${12 + idx * 1.5}s`,
+            animationDelay: `${idx * 0.8}s`,
           }}
-        />
+        >
+          <Image
+            src="/images/decorations/leaf.svg"
+            alt=""
+            width={24}
+            height={24}
+            className="opacity-40"
+            style={{
+              transform: `rotate(${idx * 30}deg) scale(${0.6 + (idx % 3) * 0.2})`,
+            }}
+          />
+        </div>
       ))}
-      <style jsx>{`
-        @keyframes petal {
-          0% {
-            transform: translateY(0) translateX(0) rotate(0deg);
-          }
-          100% {
-            transform: translateY(110vh) translateX(20px) rotate(360deg);
-          }
-        }
-      `}</style>
     </div>
   );
 }

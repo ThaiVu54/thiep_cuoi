@@ -4,7 +4,9 @@ import { EnvelopeCover } from "@/components/common/EnvelopeCover";
 import { FallingPetals } from "@/components/common/FallingPetals";
 import { MusicPlayer } from "@/components/common/MusicPlayer";
 import { RevealOnScroll } from "@/components/common/RevealOnScroll";
+import { Calendar } from "@/components/sections/Calendar";
 import { Countdown } from "@/components/sections/Countdown";
+import { DressCode } from "@/components/sections/DressCode";
 import { EventInfo } from "@/components/sections/EventInfo";
 import { Footer } from "@/components/sections/Footer";
 import { Gallery } from "@/components/sections/Gallery";
@@ -13,6 +15,7 @@ import { Hero } from "@/components/sections/Hero";
 import { Invitation } from "@/components/sections/Invitation";
 import { LocationMap } from "@/components/sections/LocationMap";
 import { LoveStory } from "@/components/sections/LoveStory";
+import { Program } from "@/components/sections/Program";
 import { RsvpForm } from "@/components/sections/RsvpForm";
 import { Wishes } from "@/components/sections/Wishes";
 import { siteConfig } from "@/config/site.config";
@@ -27,47 +30,83 @@ export function InvitationPageClient({ guestName, guestSlug }: InvitationPageCli
   const [opened, setOpened] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
 
-  // Sau khi màn phủ mở xong thì cuộn mượt xuống phần nội dung thiệp
   const handleRevealed = () => {
     contentRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
-    <main className="relative mx-auto min-h-screen max-w-xl space-y-4 bg-gradient-to-b from-white via-rose-50 to-white px-4 py-5">
+    <main className="relative mx-auto min-h-screen max-w-xl bg-cream">
       <EnvelopeCover opened={opened} onOpen={() => setOpened(true)} onRevealed={handleRevealed} />
       <FallingPetals />
-      <Hero />
       <MusicPlayer src={siteConfig.music} shouldPlay={opened} />
-      <div ref={contentRef} className="space-y-4">
+      
+      <div ref={contentRef}>
+        {/* Hero Section - No animation delay */}
+        <Hero />
+        
+        {/* Calendar Section */}
+        <RevealOnScroll>
+          <Calendar />
+        </RevealOnScroll>
+
+        {/* Countdown */}
         <RevealOnScroll>
           <Countdown />
         </RevealOnScroll>
+
+        {/* Invitation */}
         <RevealOnScroll>
           <Invitation guestName={guestName} />
         </RevealOnScroll>
+
+        {/* Program / Timeline */}
         <RevealOnScroll>
-          <LoveStory />
+          <Program />
         </RevealOnScroll>
-        <RevealOnScroll>
-          <Gallery />
-        </RevealOnScroll>
+
+        {/* Event Info */}
         <RevealOnScroll>
           <EventInfo />
         </RevealOnScroll>
+
+        {/* Location Map */}
         <RevealOnScroll>
           <LocationMap />
         </RevealOnScroll>
+
+        {/* Dress Code */}
+        <RevealOnScroll>
+          <DressCode />
+        </RevealOnScroll>
+
+        {/* Love Story */}
+        <RevealOnScroll>
+          <LoveStory />
+        </RevealOnScroll>
+
+        {/* Gallery */}
+        <RevealOnScroll>
+          <Gallery />
+        </RevealOnScroll>
+
+        {/* RSVP Form */}
         <RevealOnScroll>
           <RsvpForm guestName={guestName} guestSlug={guestSlug} />
         </RevealOnScroll>
+
+        {/* Wishes */}
         <RevealOnScroll>
           <Wishes />
         </RevealOnScroll>
+
+        {/* Gift Box */}
         <RevealOnScroll>
           <GiftBox />
         </RevealOnScroll>
+
+        {/* Footer */}
+        <Footer />
       </div>
-      <Footer />
     </main>
   );
 }

@@ -27,9 +27,15 @@ export function Wishes() {
 
   return (
     <section className="section-card">
-      <h2 className="font-serif text-2xl text-rose-700">Sổ lưu bút</h2>
+      <h2 className="section-title">Sổ Lưu Bút</h2>
+      <div className="gold-divider" />
+      
+      <p className="text-center text-sm text-ink/70 mb-6">
+        Gửi lời chúc phúc đến cô dâu và chú rể
+      </p>
+
       <form
-        className="mt-3 space-y-2"
+        className="space-y-3 mb-6"
         onSubmit={async (event) => {
           event.preventDefault();
           const form = event.currentTarget;
@@ -55,19 +61,38 @@ export function Wishes() {
         }}
       >
         <Input name="name" placeholder="Tên của bạn" required />
-        <Input name="content" placeholder="Lời chúc" required />
+        <textarea
+          name="content"
+          placeholder="Viết lời chúc của bạn..."
+          required
+          rows={3}
+          className="w-full border-2 border-primary/30 bg-cream px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary/20 placeholder:text-ink/40 resize-none"
+        />
         <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" />
-        <Button type="submit">Gửi lời chúc</Button>
+        <Button type="submit" variant="primary" className="w-full">
+          Gửi Lời Chúc
+        </Button>
       </form>
-      <div className="mt-4 space-y-2">
-        {wishes.map((wish) => (
-          <article key={wish.id} className="rounded-2xl bg-rose-50 p-3">
-            <p className="text-xs font-semibold text-rose-500">{wish.name}</p>
-            <p className="text-sm">{wish.content}</p>
-          </article>
-        ))}
-      </div>
-      {toast ? <Toast message={toast.text} type={toast.type} /> : null}
+
+      {/* Wishes list */}
+      {wishes.length > 0 && (
+        <div className="space-y-3 max-h-80 overflow-y-auto">
+          {wishes.map((wish) => (
+            <article 
+              key={wish.id} 
+              className="p-4 border border-primary/20 bg-cream-dark relative"
+            >
+              {/* Quote decoration */}
+              <span className="absolute -top-2 -left-1 text-4xl text-primary/20 font-serif">"</span>
+              
+              <p className="text-sm text-ink/80 italic pl-4">{wish.content}</p>
+              <p className="mt-2 text-xs text-primary font-medium text-right">— {wish.name}</p>
+            </article>
+          ))}
+        </div>
+      )}
+
+      {toast && <Toast message={toast.text} type={toast.type} />}
     </section>
   );
 }

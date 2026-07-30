@@ -4,12 +4,178 @@
 
 :root {
   color-scheme: light;
+  --color-primary: #722F37;
+  --color-cream: #FDF8F3;
+  --color-gold: #D4AF37;
 }
 
 body {
-  @apply bg-soft text-ink;
+  @apply bg-cream text-ink;
 }
 
+/* Vintage section card */
 .section-card {
-  @apply rounded-3xl bg-white/90 p-5 shadow-lg shadow-rose-100;
+  @apply relative rounded-none border-2 border-primary/20 bg-cream p-6;
+  background-image: 
+    linear-gradient(to bottom, rgba(114, 47, 55, 0.03) 0%, transparent 100%);
+}
+
+.section-card::before {
+  content: "";
+  @apply absolute inset-2 border border-primary/10 pointer-events-none;
+}
+
+/* Decorative corners */
+.vintage-frame {
+  @apply relative;
+}
+
+.vintage-frame::before,
+.vintage-frame::after {
+  content: "";
+  @apply absolute w-8 h-8 border-primary/40;
+}
+
+.vintage-frame::before {
+  @apply top-0 left-0 border-t-2 border-l-2;
+}
+
+.vintage-frame::after {
+  @apply bottom-0 right-0 border-b-2 border-r-2;
+}
+
+/* Gold accent line */
+.gold-divider {
+  @apply h-px bg-gradient-to-r from-transparent via-gold to-transparent my-4;
+}
+
+/* Section title styling */
+.section-title {
+  @apply font-serif text-2xl text-primary text-center;
+  text-shadow: 1px 1px 0 rgba(212, 175, 55, 0.2);
+}
+
+/* Burgundy card variant */
+.card-burgundy {
+  @apply bg-primary text-cream p-5 relative;
+}
+
+.card-burgundy::before {
+  content: "";
+  @apply absolute inset-2 border border-cream/20 pointer-events-none;
+}
+
+/* Cream card variant */
+.card-cream {
+  @apply bg-cream-dark border border-primary/20 p-4;
+}
+
+/* Vintage input styling */
+.input-vintage {
+  @apply w-full border-2 border-primary/30 bg-cream px-4 py-3 text-sm outline-none 
+         focus:border-primary focus:ring-1 focus:ring-primary/20
+         placeholder:text-ink/40;
+}
+
+/* Vintage button */
+.btn-vintage {
+  @apply px-8 py-3 font-serif text-sm uppercase tracking-wider transition-all duration-300;
+}
+
+.btn-vintage-primary {
+  @apply btn-vintage bg-primary text-cream border-2 border-primary
+         hover:bg-primary-dark;
+}
+
+.btn-vintage-outline {
+  @apply btn-vintage bg-transparent text-primary border-2 border-primary
+         hover:bg-primary hover:text-cream;
+}
+
+/* Floral decorations */
+.floral-top-left,
+.floral-top-right,
+.floral-bottom-left,
+.floral-bottom-right {
+  @apply absolute w-24 h-24 bg-contain bg-no-repeat pointer-events-none opacity-60;
+}
+
+.floral-top-left {
+  @apply top-0 left-0;
+  background-image: url('/images/decorations/floral-corner.svg');
+}
+
+.floral-top-right {
+  @apply top-0 right-0;
+  background-image: url('/images/decorations/floral-corner.svg');
+  transform: scaleX(-1);
+}
+
+.floral-bottom-left {
+  @apply bottom-0 left-0;
+  background-image: url('/images/decorations/floral-corner.svg');
+  transform: scaleY(-1);
+}
+
+.floral-bottom-right {
+  @apply bottom-0 right-0;
+  background-image: url('/images/decorations/floral-corner.svg');
+  transform: scale(-1);
+}
+
+/* Timeline styling */
+.timeline-item {
+  @apply relative pl-8 pb-6;
+}
+
+.timeline-item::before {
+  content: "";
+  @apply absolute left-0 top-2 w-4 h-4 bg-primary rounded-full border-2 border-gold;
+}
+
+.timeline-item::after {
+  content: "";
+  @apply absolute left-[7px] top-6 w-0.5 h-full bg-primary/30;
+}
+
+.timeline-item:last-child::after {
+  @apply hidden;
+}
+
+/* Polaroid frame for photos */
+.polaroid {
+  @apply bg-cream p-2 pb-8 shadow-lg rotate-[-2deg] hover:rotate-0 transition-transform duration-300;
+}
+
+.polaroid:nth-child(even) {
+  @apply rotate-[2deg] hover:rotate-0;
+}
+
+/* Calendar styling */
+.calendar-day {
+  @apply w-8 h-8 flex items-center justify-center text-sm;
+}
+
+.calendar-day-active {
+  @apply bg-primary text-cream rounded-full font-bold;
+}
+
+.calendar-day-today {
+  @apply border-2 border-gold rounded-full;
+}
+
+/* Falling leaves animation */
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) translateX(30px) rotate(360deg);
+    opacity: 0.3;
+  }
+}
+
+.falling-leaf {
+  animation: fall linear infinite;
 }

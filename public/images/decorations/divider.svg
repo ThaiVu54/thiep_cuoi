@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 40" fill="none">
+  <g opacity="0.6">
+    <!-- Center ornament -->
+    <path d="M190 20 Q 195 10, 200 20 Q 205 10, 210 20" stroke="#722F37" stroke-width="1.5" fill="none"/>
+    <circle cx="200" cy="20" r="4" fill="#D4AF37"/>
+    
+    <!-- Left side -->
+    <line x1="50" y1="20" x2="180" y2="20" stroke="#722F37" stroke-width="1"/>
+    <path d="M50 20 Q 40 15, 30 20 Q 40 25, 50 20" fill="#722F37" opacity="0.5"/>
+    
+    <!-- Right side -->
+    <line x1="220" y1="20" x2="350" y2="20" stroke="#722F37" stroke-width="1"/>
+    <path d="M350 20 Q 360 15, 370 20 Q 360 25, 350 20" fill="#722F37" opacity="0.5"/>
+    
+    <!-- Small decorative dots -->
+    <circle cx="80" cy="20" r="2" fill="#D4AF37" opacity="0.6"/>
+    <circle cx="120" cy="20" r="2" fill="#D4AF37" opacity="0.6"/>
+    <circle cx="160" cy="20" r="2" fill="#D4AF37" opacity="0.6"/>
+    <circle cx="240" cy="20" r="2" fill="#D4AF37" opacity="0.6"/>
+    <circle cx="280" cy="20" r="2" fill="#D4AF37" opacity="0.6"/>
+    <circle cx="320" cy="20" r="2" fill="#D4AF37" opacity="0.6"/>
+  </g>
+</svg>

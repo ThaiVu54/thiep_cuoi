@@ -4,14 +4,42 @@ import { siteConfig } from "@/config/site.config";
 export function LoveStory() {
   return (
     <section className="section-card">
-      <h2 className="font-serif text-2xl text-rose-700">Chuyện chúng mình</h2>
-      <div className="mt-4 space-y-4">
-        {siteConfig.story.map((item) => (
-          <article key={item.title} className="rounded-2xl bg-rose-50 p-3">
-            <Image src={item.image} alt={item.title} width={600} height={260} className="h-32 w-full rounded-xl object-cover" />
-            <p className="mt-3 text-xs font-semibold text-rose-500">{item.date}</p>
-            <h3 className="text-base font-semibold text-rose-700">{item.title}</h3>
-            <p className="text-sm">{item.content}</p>
+      <h2 className="section-title">Chuyện Tình Yêu</h2>
+      <div className="gold-divider" />
+      
+      <div className="mt-6 space-y-8">
+        {siteConfig.story.map((item, index) => (
+          <article key={item.title} className="relative">
+            {/* Timeline connector */}
+            {index < siteConfig.story.length - 1 && (
+              <div className="absolute left-[60px] top-[100px] w-0.5 h-full bg-primary/20" />
+            )}
+            
+            <div className="flex gap-4">
+              {/* Date badge */}
+              <div className="flex-shrink-0 w-[120px] text-center">
+                <div className="inline-block bg-primary text-cream px-3 py-1 text-xs font-medium">
+                  {item.date}
+                </div>
+              </div>
+              
+              {/* Content */}
+              <div className="flex-1">
+                {/* Polaroid style image */}
+                <div className="polaroid inline-block mb-4">
+                  <Image 
+                    src={item.image} 
+                    alt={item.title} 
+                    width={200} 
+                    height={150} 
+                    className="w-full h-32 object-cover"
+                  />
+                </div>
+                
+                <h3 className="font-serif text-lg text-primary">{item.title}</h3>
+                <p className="mt-2 text-sm text-ink/80 leading-relaxed">{item.content}</p>
+              </div>
+            </div>
           </article>
         ))}
       </div>

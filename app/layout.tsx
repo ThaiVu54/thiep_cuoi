@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Be_Vietnam_Pro, Playfair_Display } from "next/font/google";
+import { Be_Vietnam_Pro, Playfair_Display, Great_Vibes } from "next/font/google";
 import "../styles/globals.css";
 
 // Nạp font kèm subset "vietnamese" để hiển thị đúng các dấu tiếng Việt (ế, ệ, ữ, ợ...)
@@ -17,6 +17,14 @@ const playfairDisplay = Playfair_Display({
   variable: "--font-serif",
 });
 
+// Script font cho tên cô dâu chú rể
+const greatVibes = Great_Vibes({
+  subsets: ["latin", "vietnamese"],
+  weight: ["400"],
+  display: "swap",
+  variable: "--font-script",
+});
+
 export const metadata: Metadata = {
   title: "Thiệp cưới Thái Vũ & Minh Ánh",
   description: "Thiệp cưới online với RSVP và lời chúc.",
@@ -31,7 +39,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="vi" className={`${beVietnamPro.variable} ${playfairDisplay.variable}`}>
+    <html lang="vi" className={`${beVietnamPro.variable} ${playfairDisplay.variable} ${greatVibes.variable}`}>
       <body className="font-sans">{children}</body>
     </html>
   );

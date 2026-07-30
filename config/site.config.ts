@@ -60,8 +60,8 @@ export const siteConfig: SiteConfig = {
   ],
   bank: [
     {
-      owner: "NGUYEN THAI VU",
-      bank: "Vietcombank",
+      owner: "VU VAN THAI",
+      bank: "Pvcombank",
       number: "0123456789",
       qr: "/qr/bank-qr.svg",
     },
