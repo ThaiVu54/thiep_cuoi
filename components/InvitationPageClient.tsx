@@ -2,6 +2,7 @@
 
 import { EnvelopeCover } from "@/components/common/EnvelopeCover";
 import { FallingPetals } from "@/components/common/FallingPetals";
+import { Fireworks } from "@/components/common/Fireworks";
 import { MusicPlayer } from "@/components/common/MusicPlayer";
 import { RevealOnScroll } from "@/components/common/RevealOnScroll";
 import { Calendar } from "@/components/sections/Calendar";
@@ -38,6 +39,7 @@ export function InvitationPageClient({ guestName, guestSlug }: InvitationPageCli
     <main className="relative mx-auto min-h-screen max-w-xl bg-cream">
       <EnvelopeCover opened={opened} onOpen={() => setOpened(true)} onRevealed={handleRevealed} />
       <FallingPetals />
+      <Fireworks trigger={opened} burstCount={4} showButton countdownDate={siteConfig.weddingDate} />
       <MusicPlayer src={siteConfig.music} shouldPlay={opened} />
       
       <div ref={contentRef}>

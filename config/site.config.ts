@@ -46,15 +46,15 @@ export const siteConfig: SiteConfig = {
     {
       title: "Lễ Vu Quy",
       date: "2026-11-20T09:00:00+07:00",
-      address: "123 Đường Hoa Hồng, Quận 1, TP.HCM",
-      mapUrl: "https://maps.google.com/?q=10.774,106.699",
+      address: "tổ dân phố Giáp 3, xã Quỹ Nhất, Ninh Bình",
+      mapUrl: "https://byvn.net/V40b",
       dressCode: "Tông hồng pastel",
     },
     {
       title: "Tiệc Cưới",
       date: "2026-11-20T11:00:00+07:00",
-      address: "Nhà hàng Hạnh Phúc, 45 Lê Lợi, TP.HCM",
-      mapUrl: "https://maps.google.com/?q=10.776,106.703",
+      address: "tổ dân phố Giáp 3, xã Quỹ Nhất, Ninh Bình",
+      mapUrl: "https://byvn.net/V40b",
       dressCode: "Lịch sự / trang trọng",
     },
   ],
@@ -68,7 +68,7 @@ export const siteConfig: SiteConfig = {
   ],
   music: "/audio/background.mp3",
   contact: {
-    phone: "0909 123 456",
-    email: "thai.vu@example.com",
+    phone: "0337334335",
+    email: "thaivv@pvcombank.com.vn",
   },
 };

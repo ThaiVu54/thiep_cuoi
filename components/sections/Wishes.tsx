@@ -83,7 +83,7 @@ export function Wishes() {
               className="p-4 border border-primary/20 bg-cream-dark relative"
             >
               {/* Quote decoration */}
-              <span className="absolute -top-2 -left-1 text-4xl text-primary/20 font-serif">"</span>
+              <span className="absolute -top-2 -left-1 text-4xl text-primary/20 font-serif">&ldquo;</span>
               
               <p className="text-sm text-ink/80 italic pl-4">{wish.content}</p>
               <p className="mt-2 text-xs text-primary font-medium text-right">— {wish.name}</p>
