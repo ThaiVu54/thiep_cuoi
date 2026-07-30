@@ -38,6 +38,7 @@ export function InvitationPageClient({ guestName, guestSlug }: InvitationPageCli
   return (
     <main className="relative mx-auto min-h-screen max-w-xl bg-cream">
       <EnvelopeCover opened={opened} onOpen={() => setOpened(true)} onRevealed={handleRevealed} />
+      <Fireworks />
       <FallingPetals />
       <Fireworks trigger={opened} burstCount={4} showButton countdownDate={siteConfig.weddingDate} />
       <MusicPlayer src={siteConfig.music} shouldPlay={opened} />
