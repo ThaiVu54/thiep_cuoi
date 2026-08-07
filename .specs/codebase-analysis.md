@@ -188,6 +188,6 @@ Các mục dưới đây là quan sát trực tiếp từ code, **chưa được
 
 11. **Không có test nào** (không jest/vitest/playwright, không script `test`), dù repo đã có `.github/instructions/testing.instructions.md`. Không có CI workflow.
 12. Không có `error.tsx` / `not-found.tsx` / `loading.tsx` trong `app/` → lỗi runtime sẽ rơi vào trang lỗi mặc định của Next.js.
-13. Metadata trong `app/layout.tsx` **hardcode tên "Thái Vũ & Ngọc Anh"**, không khớp với `config/site.config.ts` (đang là "Vũ Văn Thái & Ngô Thị Méng") — nội dung nên đọc từ `siteConfig` để tránh lệch.
+13. Metadata trong `app/layout.tsx` **hardcode tên "Thái Vũ & Ngọc Anh"**, không khớp với `config/site.config.ts` (đang là "Vũ Văn Thái & Ngô Thị Minh Anh") — nội dung nên đọc từ `siteConfig` để tránh lệch.
 14. Ảnh hiện là **SVG placeholder** trong `public/images/`, `public/qr/bank-qr.svg`; file nhạc `public/audio/background.mp3` chưa tồn tại (chỉ có README) → `useAudio` sẽ fail im lặng (`catch` rỗng) nếu thiếu file.
 15. `lib/calendar.ts` cố định thời lượng sự kiện 3 giờ và chỉ dùng `siteConfig.weddingDate`, chưa dùng danh sách `events` — nếu có nhiều sự kiện (nhà trai/nhà gái) thì lịch xuất ra chưa phản ánh đúng.
