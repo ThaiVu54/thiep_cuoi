@@ -36,10 +36,19 @@ const COLORS = [
   "#FFDFBA", // light orange
 ];
 
-export function Fireworks() {
+type FireworksProps = {
+  trigger?: boolean;
+  burstCount?: number;
+  showButton?: boolean;
+  countdownDate?: string;
+};
+
+export function Fireworks({ trigger = true, burstCount = 3 }: FireworksProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
+    if (!trigger) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -177,7 +186,7 @@ export function Fireworks() {
     };
 
     // Launch vài quả đầu ngay lập tức
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < burstCount; i++) {
       setTimeout(() => launchRocket(), i * 400);
     }
 
@@ -187,7 +196,7 @@ export function Fireworks() {
       cancelAnimationFrame(animId);
       window.removeEventListener("resize", resize);
     };
-  }, []);
+  }, [trigger, burstCount]);
 
   return (
     <canvas
