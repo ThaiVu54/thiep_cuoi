@@ -7,7 +7,7 @@ export const siteConfig: SiteConfig = {
     mother: "Bà Vũ Thị Hòa",
   },
   bride: {
-    name: "Ngô Thị Méng",
+    name: "Ngô Thị Minh Ánh",
     father: "Ông Ngô Văn Dương",
     mother: "Bà Ngô Thị Hải",
   },
