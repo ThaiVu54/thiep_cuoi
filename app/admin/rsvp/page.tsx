@@ -1,5 +1,7 @@
 import { db } from "@/lib/db";
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminRsvpPage() {
   const list = await db.rsvp.findMany({ orderBy: { createdAt: "desc" }, take: 200 });
 

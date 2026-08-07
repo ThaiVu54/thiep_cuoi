@@ -1,6 +1,8 @@
 import { db } from "@/lib/db";
 import { revalidatePath } from "next/cache";
 
+export const dynamic = "force-dynamic";
+
 async function toggleWish(formData: FormData) {
   "use server";
 

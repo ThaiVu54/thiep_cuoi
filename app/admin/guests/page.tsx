@@ -1,5 +1,7 @@
 import { db } from "@/lib/db";
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminGuestsPage() {
   const guests = await db.guest.findMany({ orderBy: { createdAt: "desc" }, take: 100 });
 

@@ -1,5 +1,7 @@
 import { db } from "@/lib/db";
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminDashboard() {
   const [guestCount, rsvpCount, attendingCount, wishPending] = await Promise.all([
     db.guest.count(),
