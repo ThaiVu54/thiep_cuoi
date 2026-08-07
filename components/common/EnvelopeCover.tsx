@@ -29,7 +29,6 @@ const BURST_PARTICLES = Array.from({ length: 16 }, (_, i) => {
     emoji: BURST_EMOJIS[i % BURST_EMOJIS.length],
   };
 });
-
 /**
  * Màn phủ toàn màn hình mô phỏng một chiếc phong bì thiệp cưới.
  * Khi khách bấm dấu niêm phong "Mở":
