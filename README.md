@@ -7,6 +7,7 @@
 ```bash
 npm install
 cp .env.example .env
+# Cập nhật DATABASE_URL trong .env thành kết nối Postgres thật của bạn
 npx prisma db push
 npm run prisma:seed
 npm run dev
@@ -84,7 +85,7 @@ Xem `.env.example`:
 ## 8) Tính năng chính đã có
 
 - Next.js 14 App Router + TypeScript + Tailwind
-- Prisma + SQLite
+- Prisma + PostgreSQL
 - Zod validation cho RSVP/Wish
 - Anti-spam cơ bản (rate-limit memory + honeypot field)
 - Open Graph image (`/opengraph-image`)

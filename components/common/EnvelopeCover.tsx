@@ -13,8 +13,6 @@ type EnvelopeCoverProps = {
   onRevealed?: () => void;
 };
 
-// Tim & cánh hoa bung ra khi nắp mở.
-// Toạ độ tính sẵn theo index (không dùng Math.random) để tránh lệch SSR/CSR.
 const BURST_EMOJIS = ["💗", "🌸", "💖", "🌷", "❤️", "🌺"];
 const BURST_PARTICLES = Array.from({ length: 16 }, (_, i) => {
   // Rải theo hình quạt hướng lên trên (-165° đến -15°)
