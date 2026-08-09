@@ -8,6 +8,7 @@ import { useState } from "react";
 export function GiftBox() {
   const [copied, setCopied] = useState(false);
   const bank = siteConfig.bank[0];
+  const qrImage = bank?.qr || "/qr/download.jpg";
 
   if (!bank) return null;
 
@@ -25,7 +26,7 @@ export function GiftBox() {
         {/* QR Code */}
         <div className="mx-auto w-40 h-40 border-4 border-primary/20 p-2 mb-4">
           <Image 
-            src={bank.qr} 
+            src={qrImage} 
             alt="QR thanh toán" 
             width={160} 
             height={160} 

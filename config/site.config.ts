@@ -62,8 +62,8 @@ export const siteConfig: SiteConfig = {
     {
       owner: "VU VAN THAI",
       bank: "Pvcombank",
-      number: "0123456789",
-      qr: "/qr/download.jpg",
+      number: "108003212015",
+      qr: "/qr/download.jpg?v=20260809",
     },
   ],
   music: "/audio/background.mp3",
