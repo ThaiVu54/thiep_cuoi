@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { siteConfig } from "@/config/site.config";
+import { RevealOnScroll } from "@/components/common/RevealOnScroll";
 
 export function LoveStory() {
   return (
@@ -9,7 +10,8 @@ export function LoveStory() {
       
       <div className="mt-6 space-y-8">
         {siteConfig.story.map((item, index) => (
-          <article key={item.title} className="relative">
+          <RevealOnScroll key={item.title} delay={index * 0.1} amount={0.25}>
+            <article className="relative">
             {/* Timeline connector */}
             {index < siteConfig.story.length - 1 && (
               <div className="absolute left-[60px] top-[100px] w-0.5 h-full bg-primary/20" />
@@ -41,6 +43,7 @@ export function LoveStory() {
               </div>
             </div>
           </article>
+          </RevealOnScroll>
         ))}
       </div>
     </section>
