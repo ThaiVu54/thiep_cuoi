@@ -13,6 +13,9 @@ concurrency:
 jobs:
   deploy-production:
     runs-on: ubuntu-latest
+    env:
+      VERCEL_ORG_ID: team_Bvemnk1bLxMCRcY5LgNF0tBv
+      VERCEL_PROJECT_ID: prj_dVeuJQUsG4ufNT9UFZW8SL7yW9pB
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -27,18 +30,9 @@ jobs:
 
       - name: Pull Vercel environment
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
-        env:
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
       - name: Build project artifacts
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
-        env:
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
       - name: Deploy to Production
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
-        env:
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}

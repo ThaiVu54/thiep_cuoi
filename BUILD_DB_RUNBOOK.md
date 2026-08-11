@@ -170,10 +170,10 @@ Mac dinh su dung GitHub Actions workflow:
 One-time setup tren GitHub repo:
 
 1) Vao `Settings -> Secrets and variables -> Actions`.
-2) Tao 3 secrets sau:
+2) Tao secret sau:
 - `VERCEL_TOKEN`: token tao tu Vercel account settings.
-- `VERCEL_ORG_ID`: lay tu `.vercel/project.json` truong `orgId`.
-- `VERCEL_PROJECT_ID`: lay tu `.vercel/project.json` truong `projectId`.
+
+Ghi chu: `VERCEL_ORG_ID` va `VERCEL_PROJECT_ID` da duoc co dinh trong workflow cho project hien tai.
 
 Sau khi setup xong, moi commit push len `dev` se tu dong build va deploy production.
 
