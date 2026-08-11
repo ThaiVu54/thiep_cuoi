@@ -160,7 +160,24 @@ npx prisma db push
 npm run prisma:seed
 ```
 
-### B. Deploy production
+### B. Deploy production (auto tu nhanh dev)
+
+Mac dinh su dung GitHub Actions workflow:
+
+- File workflow: `.github/workflows/vercel-prod-from-dev.yml`
+- Trigger: moi lan push len nhanh `dev`
+
+One-time setup tren GitHub repo:
+
+1) Vao `Settings -> Secrets and variables -> Actions`.
+2) Tao 3 secrets sau:
+- `VERCEL_TOKEN`: token tao tu Vercel account settings.
+- `VERCEL_ORG_ID`: lay tu `.vercel/project.json` truong `orgId`.
+- `VERCEL_PROJECT_ID`: lay tu `.vercel/project.json` truong `projectId`.
+
+Sau khi setup xong, moi commit push len `dev` se tu dong build va deploy production.
+
+Neu can deploy khan cap thu cong, dung lenh:
 
 ```bash
 npx vercel --prod --yes
