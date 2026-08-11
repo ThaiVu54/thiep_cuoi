@@ -13,6 +13,9 @@ concurrency:
 jobs:
   deploy-production:
     runs-on: ubuntu-latest
+    env:
+      VERCEL_ORG_ID: team_Bvemnk1bLxMCRcY5LgNF0tBv
+      VERCEL_PROJECT_ID: prj_dVeuJQUsG4ufNT9UFZW8SL7yW9pB
     steps:
       - name: Checkout
         uses: actions/checkout@v4
