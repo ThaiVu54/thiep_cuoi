@@ -171,11 +171,16 @@ One-time setup tren GitHub repo:
 
 1) Vao `Settings -> Secrets and variables -> Actions`.
 2) Tao secret sau:
-- `VERCEL_TOKEN`: token tao tu Vercel account settings.
+- `VERCEL_DEPLOY_HOOK_URL`: Deploy Hook URL tao trong Vercel.
 
-Ghi chu: `VERCEL_ORG_ID` va `VERCEL_PROJECT_ID` da duoc co dinh trong workflow cho project hien tai.
+Cach tao Deploy Hook trong Vercel:
 
-Sau khi setup xong, moi commit push len `dev` se tu dong build va deploy production.
+1) Vao project `thiep-cuoi` tren Vercel.
+2) Vao `Settings -> Git` (hoac `Settings -> Deploy Hooks`).
+3) Tao hook moi cho environment `Production`, branch `dev`.
+4) Copy URL hook va luu vao GitHub secret `VERCEL_DEPLOY_HOOK_URL`.
+
+Sau khi setup xong, moi commit push len `dev` se trigger Deploy Hook de Vercel tu deploy production.
 
 Neu can deploy khan cap thu cong, dung lenh:
 
