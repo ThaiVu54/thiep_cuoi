@@ -1,3 +1,4 @@
+import { StaggerGroup, StaggerItem } from "@/components/common/Stagger";
 import { siteConfig } from "@/config/site.config";
 
 type TimelineEvent = {
@@ -56,36 +57,31 @@ export function Program() {
   const timeline = generateTimeline();
 
   return (
-    <section className="card-burgundy">
-      <h2 className="font-serif text-2xl text-center text-gold mb-2">Chương Trình</h2>
-      <div className="h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent mb-6" />
+    <section className="section">
+      <h2 className="section-title">Chương Trình</h2>
+      <div className="divider" />
 
-      <div className="space-y-0">
-        {timeline.map((event, index) => (
-          <div key={index} className="timeline-item">
-            <div className="flex items-start gap-4">
-              <div className="min-w-[60px] text-right">
-                <span className="font-serif text-xl text-gold">{event.time}</span>
+      <div className="card">
+        <StaggerGroup className="space-y-0" stagger={0.15}>
+          {timeline.map((event, index) => (
+            <StaggerItem key={index} className="relative flex gap-4 pb-6 last:pb-0">
+              {/* Timeline dot + connector */}
+              <div className="relative flex flex-col items-center">
+                <span className="mt-1 h-3 w-3 flex-shrink-0 rounded-full bg-sage" />
+                {index < timeline.length - 1 && <span className="mt-1 w-px flex-1 bg-line" />}
+              </div>
+
+              <div className="min-w-[52px] pt-0.5 text-right">
+                <span className="font-serif text-lg text-sage-deep">{event.time}</span>
               </div>
               <div className="flex-1 pt-0.5">
-                <h3 className="font-semibold text-cream">{event.title}</h3>
-                <p className="text-sm text-cream/70 mt-1">{event.description}</p>
+                <h3 className="font-semibold text-ink">{event.title}</h3>
+                <p className="mt-1 text-sm text-ink-muted">{event.description}</p>
               </div>
-            </div>
-          </div>
-        ))}
+            </StaggerItem>
+          ))}
+        </StaggerGroup>
       </div>
-
-      {/* Override timeline styles for burgundy background */}
-      <style jsx>{`
-        .timeline-item::before {
-          background-color: #D4AF37;
-          border-color: #FDF8F3;
-        }
-        .timeline-item::after {
-          background-color: rgba(253, 248, 243, 0.3);
-        }
-      `}</style>
     </section>
   );
 }

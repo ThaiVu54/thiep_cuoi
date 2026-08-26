@@ -6,12 +6,12 @@ import type { RefObject } from "react";
 // ─── Constants ────────────────────────────────────────────────────────────────
 
 export const FIREWORKS_COLORS: string[] = [
-  "#7c3d52", // burgundy (primary)
-  "#c9a84c", // gold
-  "#f9f3e8", // cream
-  "#b76e79", // rose gold
-  "#e8c4b8", // blush
-  "#ffffff", // white
+  "#93A98F", // sage
+  "#6D8570", // sage deep
+  "#EDC9C3", // blush
+  "#FAEDEA", // blush light
+  "#FBF9F6", // canvas
+  "#FFFFFF", // white
 ];
 
 export const GRAVITY = 0.05;

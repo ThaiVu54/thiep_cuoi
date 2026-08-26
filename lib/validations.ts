@@ -14,3 +14,7 @@ export const wishSchema = z.object({
   content: z.string().min(3, "Lời chúc quá ngắn").max(500),
   honeypot: z.string().max(0).optional().or(z.literal("")),
 });
+
+export const inviteLinkSchema = z.object({
+  name: z.string().trim().min(2, "Tên cần ít nhất 2 ký tự").max(80, "Tên quá dài"),
+});

@@ -15,6 +15,10 @@
         "@modelcontextprotocol/server-filesystem",
         "${workspaceFolder}"
       ]
+    },
+    "google-sheets": {
+      "type": "http",
+      "url": "http://localhost:3000/mcp"
     }
   },
   "inputs": [
@@ -22,6 +26,17 @@
       "id": "github_pat",
       "type": "promptString",
       "description": "GitHub Personal Access Token (fine-grained)",
+      "password": true
+    },
+    {
+      "id": "google_client_id",
+      "type": "promptString",
+      "description": "Google OAuth client ID for the Google Sheets MCP server"
+    },
+    {
+      "id": "google_client_secret",
+      "type": "promptString",
+      "description": "Google OAuth client secret for the Google Sheets MCP server",
       "password": true
     }
   ]

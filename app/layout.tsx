@@ -40,7 +40,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="vi" className={`${beVietnamPro.variable} ${playfairDisplay.variable} ${greatVibes.variable}`}>
-      <body className="font-sans">{children}</body>
+      <body className="bg-canvas font-sans text-ink antialiased">{children}</body>
     </html>
   );
 }

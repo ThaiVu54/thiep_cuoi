@@ -1,3 +1,5 @@
+import { deleteWish } from "@/app/admin/actions";
+import { ConfirmDeleteButton } from "@/components/common/ConfirmDeleteButton";
 import { db } from "@/lib/db";
 import { revalidatePath } from "next/cache";
 
@@ -51,6 +53,7 @@ export default async function AdminWishesPage() {
         <table className="min-w-full text-left text-sm">
           <thead className="bg-slate-100 text-xs uppercase text-slate-500">
             <tr>
+              <th className="px-3 py-2">STT</th>
               <th className="px-3 py-2">ID</th>
               <th className="px-3 py-2">Tên</th>
               <th className="px-3 py-2">Khách tham dự</th>
@@ -62,11 +65,12 @@ export default async function AdminWishesPage() {
             </tr>
           </thead>
           <tbody>
-            {wishes.map((wish: WishRow) => {
+            {wishes.map((wish: WishRow, index: number) => {
               const rsvp = rsvpByName.get(wish.name.trim().toLowerCase());
 
               return (
               <tr key={wish.id} className="border-t align-top">
+                <td className="px-3 py-2 text-slate-500">{index + 1}</td>
                 <td className="px-3 py-2 font-mono text-xs text-slate-500">{wish.id}</td>
                 <td className="px-3 py-2 font-medium">{wish.name}</td>
                 <td className="px-3 py-2">{rsvp ? (rsvp.attending ? "Có" : "Không") : "-"}</td>
@@ -79,13 +83,16 @@ export default async function AdminWishesPage() {
                   </span>
                 </td>
                 <td className="px-3 py-2">
-                  <form action={toggleWish}>
-                    <input type="hidden" name="id" value={wish.id} />
-                    <input type="hidden" name="approved" value={String(wish.approved)} />
-                    <button className="rounded-full bg-slate-900 px-3 py-1 text-xs text-white" type="submit">
-                      {wish.approved ? "Ẩn" : "Duyệt"}
-                    </button>
-                  </form>
+                  <div className="flex items-center gap-2">
+                    <form action={toggleWish}>
+                      <input type="hidden" name="id" value={wish.id} />
+                      <input type="hidden" name="approved" value={String(wish.approved)} />
+                      <button className="rounded-full bg-slate-900 px-3 py-1 text-xs text-white" type="submit">
+                        {wish.approved ? "Ẩn" : "Duyệt"}
+                      </button>
+                    </form>
+                    <ConfirmDeleteButton id={wish.id} label={wish.content} action={deleteWish} />
+                  </div>
                 </td>
               </tr>
               );

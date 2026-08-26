@@ -18,7 +18,7 @@ export function Modal({ open, onClose, children }: ModalProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-ink/80 p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-ink/40 p-4 backdrop-blur-sm"
           onClick={onClose}
         >
           <motion.div
@@ -26,27 +26,18 @@ export function Modal({ open, onClose, children }: ModalProps) {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className={cn(
-              "relative max-w-lg bg-cream p-4 shadow-2xl",
-              "border-2 border-primary/30"
-            )}
+            className={cn("relative max-w-lg rounded-2xl bg-surface p-4 shadow-lift")}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Decorative corners */}
-            <div className="absolute top-2 left-2 w-6 h-6 border-t-2 border-l-2 border-primary/50" />
-            <div className="absolute top-2 right-2 w-6 h-6 border-t-2 border-r-2 border-primary/50" />
-            <div className="absolute bottom-2 left-2 w-6 h-6 border-b-2 border-l-2 border-primary/50" />
-            <div className="absolute bottom-2 right-2 w-6 h-6 border-b-2 border-r-2 border-primary/50" />
-            
             {/* Close button */}
             <button
               onClick={onClose}
-              className="absolute -top-3 -right-3 w-8 h-8 bg-primary text-cream flex items-center justify-center hover:bg-primary-dark transition-colors"
+              className="absolute -top-3 -right-3 flex h-8 w-8 items-center justify-center rounded-full bg-sage text-white shadow-soft transition-colors hover:bg-sage-deep"
               aria-label="Đóng"
             >
               ×
             </button>
-            
+
             {children}
           </motion.div>
         </motion.div>

@@ -1,5 +1,6 @@
 "use client";
 
+import { StaggerGroup, StaggerItem } from "@/components/common/Stagger";
 import { Modal } from "@/components/ui/Modal";
 import { siteConfig } from "@/config/site.config";
 import { motion, useReducedMotion } from "framer-motion";
@@ -11,13 +12,19 @@ export function Gallery() {
   const prefersReducedMotion = useReducedMotion();
 
   return (
-    <section className="card-burgundy">
-      <h2 className="font-serif text-2xl text-center text-gold">Khoảnh Khắc</h2>
-      <div className="h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent my-4" />
-      
-      <p className="text-center text-sm text-cream/70 mb-6">
-        Những kỷ niệm đẹp của chúng mình
-      </p>
+    <section className="section">
+      <StaggerGroup stagger={0.1}>
+        <StaggerItem>
+          <h2 className="section-title">Khoảnh Khắc</h2>
+          <div className="divider" />
+        </StaggerItem>
+
+        <StaggerItem>
+          <p className="text-center text-sm text-ink-muted mb-6">
+            Những kỷ niệm đẹp của chúng mình
+          </p>
+        </StaggerItem>
+      </StaggerGroup>
 
       {/* overflow-hidden: chặn scroll ngang khi ảnh trượt vào từ 2 bên */}
       <div className="grid grid-cols-2 gap-3 overflow-hidden">
@@ -28,7 +35,7 @@ export function Gallery() {
           return (
             <motion.button 
               key={src} 
-              className="group relative overflow-hidden border-2 border-gold/30 hover:border-gold transition-colors"
+              className="group relative overflow-hidden rounded-xl shadow-soft"
               onClick={() => setActive(src)}
               initial={
                 prefersReducedMotion
@@ -44,9 +51,6 @@ export function Gallery() {
                 ease: [0.22, 1, 0.36, 1],
               }}
             >
-              {/* Frame decoration */}
-              <div className="absolute inset-1 border border-cream/20 pointer-events-none z-10" />
-              
               <Image 
                 src={src} 
                 alt={`Ảnh kỷ niệm ${index + 1}`}
@@ -57,8 +61,8 @@ export function Gallery() {
               />
               
               {/* Hover overlay */}
-              <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors flex items-center justify-center">
-                <span className="opacity-0 group-hover:opacity-100 text-cream text-sm transition-opacity">
+              <div className="absolute inset-0 bg-ink/0 group-hover:bg-ink/20 transition-colors flex items-center justify-center">
+                <span className="opacity-0 group-hover:opacity-100 text-white text-sm transition-opacity">
                   Xem ảnh
                 </span>
               </div>
@@ -74,7 +78,7 @@ export function Gallery() {
             alt="Ảnh phóng to" 
             width={900} 
             height={700} 
-            className="w-full"
+            className="w-full rounded-xl"
           />
         )}
       </Modal>

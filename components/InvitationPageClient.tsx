@@ -20,6 +20,8 @@ import { Program } from "@/components/sections/Program";
 import { RsvpForm } from "@/components/sections/RsvpForm";
 import { Wishes } from "@/components/sections/Wishes";
 import { siteConfig } from "@/config/site.config";
+import { useAutoScroll } from "@/hooks/useAutoScroll";
+import { useReducedMotion } from "framer-motion";
 import { useRef, useState } from "react";
 
 type InvitationPageClientProps = {
@@ -30,13 +32,19 @@ type InvitationPageClientProps = {
 export function InvitationPageClient({ guestName, guestSlug }: InvitationPageClientProps) {
   const [opened, setOpened] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
+  const prefersReducedMotion = useReducedMotion();
+  const { start: startAutoScroll } = useAutoScroll();
 
   const handleRevealed = () => {
     contentRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    // Chỉ tự động cuộn giúp nếu khách không bật "giảm chuyển động"
+    if (!prefersReducedMotion) {
+      startAutoScroll();
+    }
   };
 
   return (
-    <main className="relative mx-auto min-h-screen max-w-xl bg-cream">
+    <main className="relative mx-auto min-h-screen max-w-xl bg-canvas">
       <EnvelopeCover opened={opened} onOpen={() => setOpened(true)} onRevealed={handleRevealed} />
       <Fireworks />
       <FallingPetals />
@@ -78,9 +86,9 @@ export function InvitationPageClient({ guestName, guestSlug }: InvitationPageCli
         </RevealOnScroll>
 
         {/* Dress Code */}
-        <RevealOnScroll>
+        {/* <RevealOnScroll>
           <DressCode />
-        </RevealOnScroll>
+        </RevealOnScroll> */}
 
         {/* Love Story */}
         <RevealOnScroll>

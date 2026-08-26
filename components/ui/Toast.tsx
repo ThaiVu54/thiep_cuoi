@@ -19,15 +19,13 @@ export function Toast({ message, type = "success" }: ToastProps) {
 
   return (
     <div
-      className={`fixed bottom-20 left-1/2 -translate-x-1/2 z-50 px-6 py-3 text-sm shadow-lg border-2 transition-all duration-300 ${
-        type === "success" 
-          ? "bg-cream text-primary border-gold" 
-          : "bg-primary text-cream border-primary-dark"
+      className={`fixed bottom-20 left-1/2 z-50 -translate-x-1/2 rounded-full px-6 py-3 text-sm shadow-lift transition-all duration-300 ${
+        type === "success" ? "bg-surface text-sage-deep" : "bg-ink text-canvas"
       }`}
     >
       <div className="flex items-center gap-2">
         {type === "success" ? (
-          <svg className="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5 text-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         ) : (

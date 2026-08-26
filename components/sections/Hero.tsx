@@ -6,77 +6,35 @@ import Image from "next/image";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-primary text-center py-12 px-6">
-      {/* Decorative border */}
-      <div className="absolute inset-3 border border-gold/30 pointer-events-none" />
-      
-      {/* Floral decorations */}
-      <Image
-        src="/images/decorations/floral-corner.svg"
-        alt=""
-        width={100}
-        height={100}
-        className="absolute top-0 left-0 opacity-50"
-      />
-      <Image
-        src="/images/decorations/floral-corner.svg"
-        alt=""
-        width={100}
-        height={100}
-        className="absolute top-0 right-0 opacity-50 -scale-x-100"
-      />
-      <Image
-        src="/images/decorations/floral-corner.svg"
-        alt=""
-        width={100}
-        height={100}
-        className="absolute bottom-0 left-0 opacity-50 -scale-y-100"
-      />
-      <Image
-        src="/images/decorations/floral-corner.svg"
-        alt=""
-        width={100}
-        height={100}
-        className="absolute bottom-0 right-0 opacity-50 scale-[-1]"
-      />
+    <section className="relative overflow-hidden text-center">
+      {/* Ảnh cưới full-bleed */}
+      <div className="relative aspect-[4/5] w-full">
+        <Image
+          src="/images/hero/hero.svg"
+          alt="Ảnh cô dâu chú rể"
+          fill
+          priority
+          sizes="(max-width: 640px) 100vw, 640px"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-canvas via-canvas/10 to-transparent" />
+      </div>
 
-      <div className="relative z-10">
-        {/* Hero image placeholder */}
-        <div className="mx-auto w-32 h-32 rounded-full border-4 border-gold/50 overflow-hidden mb-6 shadow-lg">
-          <Image
-            src="/images/hero/hero.svg"
-            alt="Ảnh cô dâu chú rể"
-            width={128}
-            height={128}
-            className="w-full h-full object-cover"
-          />
-        </div>
+      <div className="relative -mt-16 px-6 pb-10">
+        <p className="section-eyebrow">Save the Date</p>
 
-        <p className="text-xs uppercase tracking-[0.3em] text-gold/80">Save the Date</p>
-        
         {/* Names */}
-        <h1 className="mt-4 font-script text-4xl text-cream sm:text-5xl">
-          {siteConfig.groom.name}
-        </h1>
-        <p className="my-2 font-serif text-xl text-gold">&</p>
-        <h1 className="font-script text-4xl text-cream sm:text-5xl">
-          {siteConfig.bride.name}
-        </h1>
+        <h1 className="mt-3 font-script text-4xl text-ink sm:text-5xl">{siteConfig.groom.name}</h1>
+        <p className="my-1 font-serif text-lg text-sage-deep">&</p>
+        <h1 className="font-script text-4xl text-ink sm:text-5xl">{siteConfig.bride.name}</h1>
 
-        {/* Divider */}
-        <div className="flex items-center justify-center gap-4 my-6">
-          <div className="h-px w-16 bg-gold/50" />
-          <div className="w-3 h-3 rotate-45 border border-gold/50" />
-          <div className="h-px w-16 bg-gold/50" />
-        </div>
+        <div className="divider" />
 
         {/* Date */}
-        <p className="font-serif text-lg text-cream/90">{formatDateVN(siteConfig.weddingDate)}</p>
-        
+        <p className="font-serif text-base text-ink">{formatDateVN(siteConfig.weddingDate)}</p>
+
         {/* Message */}
-        <p className="mt-4 text-sm text-cream/70 max-w-xs mx-auto">
-          {siteConfig.invitationMessage}
-        </p>
+        <p className="mx-auto mt-4 max-w-xs text-sm text-ink-muted">{siteConfig.invitationMessage}</p>
       </div>
     </section>
   );

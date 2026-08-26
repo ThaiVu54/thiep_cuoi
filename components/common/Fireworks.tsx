@@ -24,16 +24,14 @@ type Rocket = {
 };
 
 const COLORS = [
-  "#D4AF37", // gold
-  "#FDF8F3", // cream
-  "#E8D5A3", // gold light
-  "#FFD700", // yellow gold
-  "#F5F5DC", // beige
-  "#FFFACD", // lemon chiffon
-  "#FFF8DC", // cornsilk
-  "#FF6B6B", // soft red
-  "#FFB3BA", // light pink
-  "#FFDFBA", // light orange
+  "#93A98F", // sage
+  "#6D8570", // sage deep
+  "#EDC9C3", // blush
+  "#FAEDEA", // blush light
+  "#FBF9F6", // canvas
+  "#FFFFFF", // white
+  "#F4EFE9", // surface sunk
+  "#E4EBE2", // sage soft
 ];
 
 type FireworksProps = {

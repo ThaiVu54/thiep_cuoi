@@ -21,7 +21,7 @@ const BURST_PARTICLES = Array.from({ length: 16 }, (_, i) => {
   return {
     x: Math.round(Math.cos(angle) * distance),
     y: Math.round(Math.sin(angle) * distance),
-    delay: (i % 6) * 0.05,
+    delay: (i % 6) * 0.07,
     size: 16 + ((i * 13) % 16),
     rotate: ((i * 47) % 140) - 70,
     emoji: BURST_EMOJIS[i % BURST_EMOJIS.length],
@@ -64,19 +64,19 @@ export function EnvelopeCover({ opened, onOpen, onRevealed }: EnvelopeCoverProps
       {!opened && (
         <motion.div
           key="envelope-cover"
-          className="fixed inset-0 z-50 flex flex-col items-center justify-center overflow-hidden bg-gradient-to-br from-primary-dark via-primary to-primary-light"
+          className="fixed inset-0 z-50 flex flex-col items-center justify-center overflow-hidden bg-gradient-to-br from-sage-deep via-sage to-sage-deep"
           role="dialog"
           aria-modal="true"
           aria-label="Bìa thiệp cưới"
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5, delay: prefersReducedMotion ? 0 : 1.25 }}
+          transition={{ duration: 0.7, delay: prefersReducedMotion ? 0 : 2.4 }}
         >
           {/* Họa tiết chấm vàng mờ ở nền */}
           <div
             className="pointer-events-none absolute inset-0 opacity-[0.06]"
             style={{
               backgroundImage:
-                "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23D4AF37' fill-rule='evenodd'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E\")",
+                "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23FBF9F6' fill-rule='evenodd'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E\")",
             }}
           />
 
@@ -92,38 +92,38 @@ export function EnvelopeCover({ opened, onOpen, onRevealed }: EnvelopeCoverProps
               }
             >
               {/* Đáy phong bì (lớp sau cùng) */}
-              <div className="absolute inset-0 rounded-lg bg-primary-dark shadow-2xl shadow-black/40" />
+              <div className="absolute inset-0 rounded-lg bg-sage-deep shadow-2xl shadow-black/40" />
 
               {/* Tấm thiệp bên trong — trồi lên khi mở */}
               <motion.div
-                className="absolute inset-x-4 top-3 z-10 flex flex-col items-center justify-center rounded-md bg-cream px-4 py-6 text-center shadow-lg"
+                className="absolute inset-x-4 top-3 z-10 flex flex-col items-center justify-center rounded-md bg-surface px-4 py-6 text-center shadow-lg"
                 style={{ height: "78%" }}
                 exit={prefersReducedMotion ? { opacity: 0 } : { y: "-118%", opacity: [1, 1, 0] }}
                 transition={{
-                  duration: prefersReducedMotion ? 0.3 : 0.9,
-                  delay: prefersReducedMotion ? 0 : 0.55,
+                  duration: prefersReducedMotion ? 0.3 : 1.3,
+                  delay: prefersReducedMotion ? 0 : 0.85,
                   ease: [0.22, 1, 0.36, 1],
                 }}
               >
-                <div className="mb-2 h-px w-10 bg-gold/50" />
-                <p className="font-script text-3xl text-primary sm:text-4xl">{groomShort}</p>
-                <p className="my-0.5 font-serif text-lg text-gold">&amp;</p>
-                <p className="font-script text-3xl text-primary sm:text-4xl">{brideShort}</p>
-                <p className="mt-3 font-serif text-[11px] uppercase tracking-[0.2em] text-ink-light">
+                <div className="mb-2 h-px w-10 bg-blush" />
+                <p className="font-script text-3xl text-sage-deep sm:text-4xl">{groomShort}</p>
+                <p className="my-0.5 font-serif text-lg text-blush">&amp;</p>
+                <p className="font-script text-3xl text-sage-deep sm:text-4xl">{brideShort}</p>
+                <p className="mt-3 font-serif text-[11px] uppercase tracking-[0.2em] text-ink-muted">
                   {formatDateVN(siteConfig.weddingDate)}
                 </p>
-                <div className="mt-2 h-px w-10 bg-gold/50" />
+                <div className="mt-2 h-px w-10 bg-blush" />
               </motion.div>
 
               {/* Túi trước của phong bì (che nửa dưới tấm thiệp) */}
               <div
-                className="absolute inset-0 z-20 bg-gradient-to-t from-primary-dark to-primary"
+                className="absolute inset-0 z-20 bg-gradient-to-t from-sage-deep to-sage"
                 style={{ clipPath: pocketClip, WebkitClipPath: pocketClip }}
               />
 
               {/* Nắp phong bì — lật lên khi mở */}
               <motion.div
-                className="absolute inset-x-0 top-0 z-30 h-full origin-top bg-gradient-to-b from-primary-light to-primary"
+                className="absolute inset-x-0 top-0 z-30 h-full origin-top bg-gradient-to-b from-sage to-sage-deep"
                 style={{
                   clipPath: flapClip,
                   WebkitClipPath: flapClip,
@@ -132,15 +132,15 @@ export function EnvelopeCover({ opened, onOpen, onRevealed }: EnvelopeCoverProps
                 }}
                 exit={prefersReducedMotion ? { opacity: 0 } : { rotateX: -180 }}
                 transition={{
-                  duration: prefersReducedMotion ? 0.3 : 0.75,
-                  delay: prefersReducedMotion ? 0 : 0.2,
-                  ease: [0.4, 0, 0.2, 1],
+                  duration: prefersReducedMotion ? 0.3 : 1.15,
+                  delay: prefersReducedMotion ? 0 : 0.35,
+                  ease: [0.65, 0, 0.35, 1],
                 }}
               >
-                {/* Viền vàng chạy theo mép nắp */}
-                <div className="absolute left-0 right-0 top-0 h-px bg-gold/40" />
+                {/* Viền chạy theo mép nắp */}
+                <div className="absolute left-0 right-0 top-0 h-px bg-blush/60" />
                 {/* Chữ lồng (monogram) trên nắp */}
-                <p className="absolute left-1/2 top-6 -translate-x-1/2 font-script text-xl text-gold/80">
+                <p className="absolute left-1/2 top-6 -translate-x-1/2 font-script text-xl text-blush-soft">
                   {monogram}
                 </p>
               </motion.div>
@@ -155,11 +155,11 @@ export function EnvelopeCover({ opened, onOpen, onRevealed }: EnvelopeCoverProps
                 whileHover={prefersReducedMotion ? undefined : { scale: 1.06 }}
                 whileTap={{ scale: 0.94 }}
                 exit={{ scale: 0, opacity: 0 }}
-                transition={{ duration: 0.3, ease: "backIn" }}
+                transition={{ duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
               >
-                <span className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-gold/60 bg-gradient-to-br from-primary-light to-primary-dark shadow-lg ring-1 ring-black/10 transition-shadow group-hover:shadow-gold/40 sm:h-20 sm:w-20">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-full border border-gold/40 sm:h-16 sm:w-16">
-                    <span className="font-script text-2xl text-gold sm:text-3xl">Mở</span>
+                <span className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-blush/70 bg-gradient-to-br from-sage to-sage-deep shadow-lg ring-1 ring-black/10 transition-shadow group-hover:shadow-blush/40 sm:h-20 sm:w-20">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-full border border-blush/50 sm:h-16 sm:w-16">
+                    <span className="font-script text-2xl text-blush-soft sm:text-3xl">Mở</span>
                   </span>
                 </span>
               </motion.button>
@@ -180,7 +180,7 @@ export function EnvelopeCover({ opened, onOpen, onRevealed }: EnvelopeCoverProps
                       y: p.y,
                       rotate: p.rotate,
                     }}
-                    transition={{ duration: 1.1, delay: 0.3 + p.delay, ease: "easeOut" }}
+                    transition={{ duration: 1.5, delay: 0.55 + p.delay, ease: [0.16, 1, 0.3, 1] }}
                   >
                     {p.emoji}
                   </motion.span>
@@ -190,7 +190,7 @@ export function EnvelopeCover({ opened, onOpen, onRevealed }: EnvelopeCoverProps
 
           {/* Gợi ý thao tác */}
           <motion.p
-            className="mt-10 text-center text-xs uppercase tracking-[0.3em] text-cream/70"
+            className="mt-10 text-center text-xs uppercase tracking-[0.3em] text-canvas/70"
             initial={prefersReducedMotion ? false : { opacity: 0, y: 8 }}
             animate={
               prefersReducedMotion

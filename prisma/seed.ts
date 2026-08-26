@@ -21,8 +21,8 @@ async function main() {
 
   await prisma.wish.createMany({
     data: [
-      { name: "Nguyễn Văn Minh", content: "Chúc hai bạn trăm năm hạnh phúc!", approved: true },
-      { name: "Trần Thị Hạnh", content: "Mãi hạnh phúc nhé!", approved: true },
+      { name: "Bạn thân", content: "Chúc hai bạn trăm năm hạnh phúc!", approved: true },
+      { name: "Đồng nghiệp", content: "Mãi hạnh phúc nhé!", approved: true },
     ],
   });
 }

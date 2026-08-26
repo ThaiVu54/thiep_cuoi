@@ -9,52 +9,49 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Vintage burgundy palette
-        primary: "#722F37", // Burgundy/wine red
-        "primary-dark": "#5a252c",
-        "primary-light": "#8b3a44",
-        secondary: "#D4AF37", // Gold accent
-        cream: "#FDF8F3", // Warm cream background
-        "cream-dark": "#F5EDE3",
-        ivory: "#FFFFF0",
-        ink: "#2C1810", // Dark brown text
-        "ink-light": "#4A3728",
-        soft: "#FAF6F1",
-        gold: "#C9A227",
-        "gold-light": "#E8D5A3",
+        // Pastel modern palette
+        canvas: "#FBF9F6", // Nền trang
+        surface: "#FFFFFF", // Nền thẻ / card
+        "surface-sunk": "#F4EFE9", // Nền chìm, ô input
+        sage: "#93A98F", // Màu thương hiệu chính
+        "sage-deep": "#6D8570", // Hover / chữ nhấn
+        "sage-soft": "#E4EBE2", // Nền nhạt, chip
+        blush: "#EDC9C3", // Điểm nhấn phụ
+        "blush-soft": "#FAEDEA", // Nền nhấn phụ
+        ink: "#3B3733", // Chữ chính
+        "ink-muted": "#8A827A", // Chữ phụ, caption
+        line: "#E8E1D8", // Viền 1px
+
+        // Alias tương thích ngược — giữ để components/ui/* và trang admin không vỡ
+        primary: "#6D8570",
+        "primary-dark": "#55684F",
+        "primary-light": "#93A98F",
+        secondary: "#EDC9C3",
+        cream: "#FBF9F6",
+        "cream-dark": "#F4EFE9",
+        ivory: "#FFFFFF",
+        "ink-light": "#8A827A",
+        soft: "#F4EFE9",
+        gold: "#EDC9C3",
+        "gold-light": "#FAEDEA",
       },
       fontFamily: {
         sans: ["var(--font-sans)", "Segoe UI", "system-ui", "sans-serif"],
         serif: ["var(--font-serif)", "Times New Roman", "serif"],
         script: ["var(--font-script)", "cursive"],
       },
+      boxShadow: {
+        soft: "0 1px 2px rgba(59,55,51,.04), 0 8px 24px -12px rgba(59,55,51,.10)",
+        lift: "0 12px 32px -16px rgba(59,55,51,.18)",
+      },
       keyframes: {
-        float: {
-          "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-8px)" },
-        },
-        shimmer: {
-          "0%": { backgroundPosition: "-200% 0" },
-          "100%": { backgroundPosition: "200% 0" },
-        },
-        "fade-in-up": {
-          "0%": { opacity: "0", transform: "translateY(20px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
-        },
         "envelope-open-top": {
           "0%": { transform: "rotateX(0deg)" },
           "100%": { transform: "rotateX(-180deg)" },
         },
       },
       animation: {
-        float: "float 4s ease-in-out infinite",
-        shimmer: "shimmer 3s ease-in-out infinite",
-        "fade-in-up": "fade-in-up 0.6s ease-out forwards",
         "envelope-open": "envelope-open-top 0.8s ease-out forwards",
-      },
-      backgroundImage: {
-        "vintage-pattern": "url('/images/decorations/pattern.svg')",
-        "floral-corner": "url('/images/decorations/floral-corner.svg')",
       },
     },
   },

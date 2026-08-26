@@ -48,6 +48,7 @@ export const siteConfig: SiteConfig = {
       date: "2026-11-20T09:00:00+07:00",
       address: "tổ dân phố Giáp 3, xã Quỹ Nhất, Ninh Bình",
       mapUrl: "https://byvn.net/V40b",
+      mapEmbedUrl: "https://www.google.com/maps?q=20.0506377,106.1707825&z=17&output=embed",
       dressCode: "Tông hồng pastel",
     },
     {
@@ -55,9 +56,24 @@ export const siteConfig: SiteConfig = {
       date: "2026-11-20T11:00:00+07:00",
       address: "tổ dân phố Giáp 3, xã Quỹ Nhất, Ninh Bình",
       mapUrl: "https://byvn.net/V40b",
+      mapEmbedUrl: "https://www.google.com/maps?q=20.0506377,106.1707825&z=17&output=embed",
       dressCode: "Lịch sự / trang trọng",
     },
   ],
+  locations: {
+    groom: {
+      label: "Nhà trai",
+      address: "tổ dân phố Giáp 3, xã Quỹ Nhất, Ninh Bình",
+      mapUrl: "https://byvn.net/V40b",
+      mapEmbedUrl: "https://www.google.com/maps?q=20.0506377,106.1707825&z=17&output=embed",
+    },
+    bride: {
+      label: "Nhà gái",
+      address: "659M+W83, khu phố 2, Nghĩa Hưng, Ninh Bình, Việt Nam",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=20.2197074,106.1834315",
+      mapEmbedUrl: "https://www.google.com/maps?q=20.2197074,106.1834315&z=17&output=embed",
+    },
+  },
   bank: [
     {
       owner: "VU VAN THAI",
@@ -69,6 +85,10 @@ export const siteConfig: SiteConfig = {
   music: "/audio/background.mp3",
   contact: {
     phone: "0337334335",
-    email: "thaivv@pvcombank.com.vn",
+    email: "Nghĩa tân",
+  },
+  contact1: {
+    phone: "0862594196",
+    email: "Nghĩa Hưng",
   },
 };

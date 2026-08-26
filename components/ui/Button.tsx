@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import type { ButtonHTMLAttributes } from "react";
 
-type ButtonVariant = "primary" | "outline" | "burgundy";
+type ButtonVariant = "primary" | "outline" | "ghost" | "burgundy";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: ButtonVariant;
@@ -9,19 +9,12 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 
 export function Button({ className, variant = "primary", ...props }: ButtonProps) {
   const variants = {
-    primary: "bg-primary text-cream border-2 border-primary hover:bg-primary-dark",
-    outline: "bg-transparent text-primary border-2 border-primary hover:bg-primary hover:text-cream",
-    burgundy: "bg-gold text-ink border-2 border-gold hover:bg-gold/90",
+    primary: "btn-primary",
+    outline: "btn-outline",
+    ghost: "btn-ghost",
+    // Giữ tên variant cũ để không phải sửa nơi gọi; giờ trỏ về style ghost
+    burgundy: "btn-outline",
   };
 
-  return (
-    <button
-      className={cn(
-        "px-6 py-2.5 font-serif text-sm uppercase tracking-wider transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-50",
-        variants[variant],
-        className,
-      )}
-      {...props}
-    />
-  );
+  return <button className={cn(variants[variant], className)} {...props} />;
 }

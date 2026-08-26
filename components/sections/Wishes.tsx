@@ -1,5 +1,6 @@
 "use client";
 
+import { StaggerGroup, StaggerItem } from "@/components/common/Stagger";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Toast } from "@/components/ui/Toast";
@@ -26,13 +27,19 @@ export function Wishes() {
   }, []);
 
   return (
-    <section className="section-card">
-      <h2 className="section-title">Sổ Lưu Bút</h2>
-      <div className="gold-divider" />
-      
-      <p className="text-center text-sm text-ink/70 mb-6">
-        Gửi lời chúc phúc đến cô dâu và chú rể
-      </p>
+    <section className="section">
+      <StaggerGroup stagger={0.1}>
+        <StaggerItem>
+          <h2 className="section-title">Sổ Lưu Bút</h2>
+          <div className="divider" />
+        </StaggerItem>
+
+        <StaggerItem>
+          <p className="text-center text-sm text-ink-muted mb-6">
+            Gửi lời chúc phúc đến cô dâu và chú rể
+          </p>
+        </StaggerItem>
+      </StaggerGroup>
 
       <form
         className="space-y-3 mb-6"
@@ -53,7 +60,7 @@ export function Wishes() {
           });
 
           if (response.ok) {
-            setToast({ text: "Đã gửi lời chúc, admin sẽ duyệt sớm 💌", type: "success" });
+            setToast({ text: "Đã gửi lời chúc, Dâu Dể xin cảm ưn 💌", type: "success" });
             form.reset();
           } else {
             setToast({ text: "Gửi lời chúc thất bại", type: "error" });
@@ -66,7 +73,7 @@ export function Wishes() {
           placeholder="Viết lời chúc của bạn..."
           required
           rows={3}
-          className="w-full border-2 border-primary/30 bg-cream px-4 py-3 text-sm outline-none transition-colors focus:border-primary focus:ring-1 focus:ring-primary/20 placeholder:text-ink/40 resize-none"
+          className="field resize-none"
         />
         <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" />
         <Button type="submit" variant="primary" className="w-full">
@@ -80,13 +87,13 @@ export function Wishes() {
           {wishes.map((wish) => (
             <article 
               key={wish.id} 
-              className="p-4 border border-primary/20 bg-cream-dark relative"
+              className="card-sunk relative"
             >
               {/* Quote decoration */}
-              <span className="absolute -top-2 -left-1 text-4xl text-primary/20 font-serif">&ldquo;</span>
+              <span className="absolute -top-2 -left-1 text-4xl text-sage/30 font-serif">&ldquo;</span>
               
-              <p className="text-sm text-ink/80 italic pl-4">{wish.content}</p>
-              <p className="mt-2 text-xs text-primary font-medium text-right">— {wish.name}</p>
+              <p className="text-sm text-ink-muted italic pl-4">{wish.content}</p>
+              <p className="mt-2 text-xs text-sage-deep font-medium text-right">— {wish.name}</p>
             </article>
           ))}
         </div>

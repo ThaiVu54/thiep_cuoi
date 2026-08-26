@@ -1,5 +1,6 @@
 "use client";
 
+import { StaggerGroup, StaggerItem } from "@/components/common/Stagger";
 import { siteConfig } from "@/config/site.config";
 import { useMemo, useState } from "react";
 
@@ -70,98 +71,90 @@ export function Calendar() {
   };
 
   return (
-    <section className="section-card">
-      {/* Floral decorations */}
-      <div className="floral-top-left" />
-      <div className="floral-top-right" />
-      
-      <div className="relative z-10">
-        {/* Month/Year header */}
-        <div className="flex items-center justify-between mb-4">
-          <button 
-            onClick={prevMonth}
-            className="p-2 text-primary hover:text-primary-dark transition-colors"
-            aria-label="Tháng trước"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-          
-          <button 
-            onClick={goToWeddingMonth}
-            className="font-serif text-xl text-primary hover:text-gold transition-colors"
-          >
-            {MONTHS_VI[currentMonth]} {currentYear}
-          </button>
-          
-          <button 
-            onClick={nextMonth}
-            className="p-2 text-primary hover:text-primary-dark transition-colors"
-            aria-label="Tháng sau"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-        </div>
-
-        {/* Day headers */}
-        <div className="grid grid-cols-7 gap-1 mb-2">
-          {DAYS_VI.map((day) => (
-            <div 
-              key={day} 
-              className="text-center text-xs font-semibold text-primary/70 py-2"
+    <section className="section">
+      <div className="card">
+        <StaggerGroup stagger={0.15}>
+          {/* Month/Year header */}
+          <StaggerItem className="flex items-center justify-between mb-4">
+            <button
+              onClick={prevMonth}
+              className="p-2 text-ink-muted transition-colors hover:text-sage-deep"
+              aria-label="Tháng trước"
             >
-              {day}
-            </div>
-          ))}
-        </div>
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
 
-        {/* Calendar grid */}
-        <div className="grid grid-cols-7 gap-1">
-          {calendarDays.map((day, index) => {
-            if (day === null) {
-              return <div key={`empty-${index}`} className="calendar-day" />;
-            }
+            <button
+              onClick={goToWeddingMonth}
+              className="font-serif text-xl text-ink transition-colors hover:text-sage-deep"
+            >
+              {MONTHS_VI[currentMonth]} {currentYear}
+            </button>
 
-            const isWeddingDay = isWeddingMonth && day === weddingDay;
-            const isTodayDate = isToday(day);
+            <button
+              onClick={nextMonth}
+              className="p-2 text-ink-muted transition-colors hover:text-sage-deep"
+              aria-label="Tháng sau"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </StaggerItem>
 
-            return (
-              <div
-                key={day}
-                className={`
-                  calendar-day relative cursor-default transition-all duration-200
-                  ${isWeddingDay ? "calendar-day-active scale-110 shadow-lg" : ""}
-                  ${isTodayDate && !isWeddingDay ? "calendar-day-today" : ""}
-                  ${!isWeddingDay && !isTodayDate ? "hover:bg-primary/10 rounded-full" : ""}
-                `}
-              >
+          {/* Day headers */}
+          <StaggerItem className="grid grid-cols-7 gap-1 mb-2">
+            {DAYS_VI.map((day) => (
+              <div key={day} className="py-2 text-center text-xs font-semibold text-ink-muted">
                 {day}
-                {isWeddingDay && (
-                  <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 text-[8px] text-gold">
-                    ♥
-                  </span>
-                )}
               </div>
-            );
-          })}
-        </div>
+            ))}
+          </StaggerItem>
 
-        {/* Wedding date highlight */}
-        {isWeddingMonth && (
-          <div className="mt-4 text-center">
-            <div className="gold-divider" />
-            <p className="text-sm text-primary font-medium">
-              Ngày cưới: {weddingDay}/{weddingMonth + 1}/{weddingYear}
-            </p>
-          </div>
-        )}
+          {/* Calendar grid */}
+          <StaggerItem className="grid grid-cols-7 gap-1">
+            {calendarDays.map((day, index) => {
+              if (day === null) {
+                return <div key={`empty-${index}`} className="h-9 w-9" />;
+              }
+
+              const isWeddingDay = isWeddingMonth && day === weddingDay;
+              const isTodayDate = isToday(day);
+
+              return (
+                <div
+                  key={day}
+                  className={`
+                    relative flex h-9 w-9 cursor-default items-center justify-center rounded-full text-sm transition-all duration-200
+                    ${isWeddingDay ? "bg-sage font-bold text-white scale-105 shadow-soft" : ""}
+                    ${isTodayDate && !isWeddingDay ? "border border-blush text-ink" : ""}
+                    ${!isWeddingDay && !isTodayDate ? "text-ink hover:bg-sage-soft" : ""}
+                  `}
+                >
+                  {day}
+                  {isWeddingDay && (
+                    <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 text-[8px] text-blush-soft">
+                      ♥
+                    </span>
+                  )}
+                </div>
+              );
+            })}
+          </StaggerItem>
+
+          {/* Wedding date highlight */}
+          {isWeddingMonth && (
+            <div className="mt-4 text-center">
+              <div className="divider" />
+              <p className="text-sm font-medium text-ink">
+                Ngày cưới: {weddingDay}/{weddingMonth + 1}/{weddingYear}
+              </p>
+            </div>
+          )}
+        </StaggerGroup>
       </div>
-
-      <div className="floral-bottom-left" />
-      <div className="floral-bottom-right" />
     </section>
   );
 }
