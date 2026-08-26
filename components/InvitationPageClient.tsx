@@ -107,7 +107,7 @@ export function InvitationPageClient({ guestName, guestSlug }: InvitationPageCli
 
         {/* Wishes */}
         <RevealOnScroll>
-          <Wishes />
+          <Wishes guestName={guestName} />
         </RevealOnScroll>
 
         {/* Gift Box */}

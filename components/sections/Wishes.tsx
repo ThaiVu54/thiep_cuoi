@@ -12,7 +12,11 @@ type Wish = {
   content: string;
 };
 
-export function Wishes() {
+type WishesProps = {
+  guestName?: string;
+};
+
+export function Wishes({ guestName }: WishesProps) {
   const [wishes, setWishes] = useState<Wish[]>([]);
   const [toast, setToast] = useState<{ text: string; type: "success" | "error" } | null>(null);
 
@@ -67,7 +71,7 @@ export function Wishes() {
           }
         }}
       >
-        <Input name="name" placeholder="Tên của bạn" required />
+        <Input name="name" placeholder="Tên của bạn" defaultValue={guestName} required />
         <textarea
           name="content"
           placeholder="Viết lời chúc của bạn..."
