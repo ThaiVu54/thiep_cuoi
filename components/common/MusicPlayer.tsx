@@ -20,28 +20,39 @@ export function MusicPlayer({ src, shouldPlay }: MusicPlayerProps) {
 
   return (
     <div className="fixed bottom-4 right-4 z-40">
-      <button
-        type="button"
-        onClick={() => void toggle()}
-        aria-label={isPlaying ? "Tắt nhạc nền" : "Bật nhạc nền"}
-        aria-pressed={isPlaying}
-        className="group relative flex h-12 w-12 items-center justify-center rounded-full bg-sage shadow-soft transition-colors hover:bg-sage-deep"
-      >
-        {isPlaying ? (
-          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      {isPlaying ? (
+        // Đang phát: nút tròn với icon sóng nhạc động, bấm để tắt
+        <button
+          type="button"
+          onClick={() => void toggle()}
+          aria-label="Tắt nhạc nền"
+          aria-pressed={true}
+          className="group relative flex h-12 w-12 items-center justify-center rounded-full bg-sage shadow-soft transition-colors hover:bg-sage-deep"
+        >
+          <svg className="w-5 h-5 text-white animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M9 9v6m-3-3v0" />
           </svg>
-        ) : (
-          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+
+          {/* Tooltip */}
+          <span className="absolute bottom-full right-0 mb-2 whitespace-nowrap rounded-full bg-ink px-2 py-1 text-xs text-canvas opacity-0 transition-opacity pointer-events-none group-hover:opacity-100">
+            Tắt nhạc
+          </span>
+        </button>
+      ) : (
+        // Chưa phát: pill "CLICK PLAY" thu hút bấm, kiểu Canva
+        <button
+          type="button"
+          onClick={() => void toggle()}
+          aria-label="Bật nhạc nền"
+          aria-pressed={false}
+          className="flex items-center gap-2 rounded-full bg-sage px-4 py-3 shadow-soft transition-colors hover:bg-sage-deep"
+        >
+          <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z" />
           </svg>
-        )}
-        
-        {/* Tooltip */}
-        <span className="absolute bottom-full right-0 mb-2 whitespace-nowrap rounded-full bg-ink px-2 py-1 text-xs text-canvas opacity-0 transition-opacity pointer-events-none group-hover:opacity-100">
-          {isPlaying ? "Tắt nhạc" : "Bật nhạc"}
-        </span>
-      </button>
+          <span className="text-xs font-medium uppercase tracking-[0.2em] text-white">Click Play</span>
+        </button>
+      )}
     </div>
   );
 }
