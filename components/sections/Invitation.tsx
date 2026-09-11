@@ -43,11 +43,11 @@ export function Invitation({ guestName }: InvitationProps) {
           </div>
         </StaggerItem>
 
-        <StaggerItem>
+        {/* <StaggerItem>
           <p className="mt-6 text-xs italic text-ink-muted">
             Vui lòng xác nhận tham dự trước ngày 15/11/2026
           </p>
-        </StaggerItem>
+        </StaggerItem> */}
       </StaggerGroup>
     </section>
   );

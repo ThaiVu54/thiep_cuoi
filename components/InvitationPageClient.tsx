@@ -80,6 +80,11 @@ export function InvitationPageClient({ guestName, guestSlug }: InvitationPageCli
           <EventInfo />
         </RevealOnScroll>
 
+        {/* Gallery */}
+        <RevealOnScroll>
+          <Gallery />
+        </RevealOnScroll>
+
         {/* Location Map */}
         <RevealOnScroll>
           <LocationMap />
@@ -91,14 +96,9 @@ export function InvitationPageClient({ guestName, guestSlug }: InvitationPageCli
         </RevealOnScroll> */}
 
         {/* Love Story */}
-        <RevealOnScroll>
+        {/* <RevealOnScroll>
           <LoveStory />
-        </RevealOnScroll>
-
-        {/* Gallery */}
-        <RevealOnScroll>
-          <Gallery />
-        </RevealOnScroll>
+        </RevealOnScroll> */}
 
         {/* RSVP Form */}
         <RevealOnScroll>

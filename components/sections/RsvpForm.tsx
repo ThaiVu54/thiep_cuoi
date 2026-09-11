@@ -129,6 +129,11 @@ export function RsvpForm({ guestName, guestSlug }: RsvpFormProps) {
             {loading ? "Đang gửi..." : "Gửi Xác Nhận"}
           </Button>
         </form>
+        <StaggerItem>
+          <p className="mt-6 text-xs italic text-ink-muted">
+            Vui lòng xác nhận tham dự trước ngày 15/11/2026
+          </p>
+        </StaggerItem>
       </div>
 
       {message && <Toast message={message.text} type={message.type} />}

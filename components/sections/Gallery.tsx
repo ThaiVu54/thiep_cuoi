@@ -21,7 +21,7 @@ export function Gallery() {
 
         <StaggerItem>
           <p className="text-center text-sm text-ink-muted mb-6">
-            Những kỷ niệm đẹp của chúng mình
+            Ảnh của chúng mình
           </p>
         </StaggerItem>
       </StaggerGroup>
@@ -34,7 +34,7 @@ export function Gallery() {
 
           return (
             <motion.button 
-              key={src} 
+              key={`${src}-${index}`} 
               className="group relative overflow-hidden rounded-xl shadow-soft"
               onClick={() => setActive(src)}
               initial={
@@ -57,7 +57,10 @@ export function Gallery() {
                 width={400} 
                 height={300} 
                 loading="lazy" 
-                className="h-36 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                // 2 ảnh đầu canh lên trên để thấy rõ khuôn mặt
+                className={`h-36 w-full object-cover transition-transform duration-300 group-hover:scale-105 ${
+                  index < 2 ? "object-top" : "object-center"
+                }`}
               />
               
               {/* Hover overlay */}

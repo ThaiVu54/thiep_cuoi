@@ -37,10 +37,12 @@ export const siteConfig: SiteConfig = {
     },
   ],
   gallery: [
-    "/images/gallery/gallery-1.svg",
-    "/images/gallery/gallery-2.svg",
-    "/images/gallery/gallery-3.svg",
-    "/images/gallery/gallery-4.svg",
+    "/images/gallery/_MEL3432.jpg",
+    "/images/gallery/_MEL3808.jpg",
+    "/images/gallery/_MEL8054.jpg",
+    "/images/gallery/_MEL8177.jpg",
+    "/images/gallery/_MEL8669.jpg",
+    "/images/gallery/_MEL8492.jpg",
   ],
   events: [
     {
